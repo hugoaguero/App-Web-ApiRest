@@ -11,8 +11,4 @@ router.get('/login', (req, res) => {
     res.render(`login.ejs`);
 });
 
-router.get('*', (req, res) => {
-    res.end(`Error, no se encontro esta ruta!!!`);
-});
-
 module.exports = router;

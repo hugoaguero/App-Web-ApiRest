@@ -6,6 +6,7 @@ const port = 3000;
 // settings
 app.set('appName', 'First Server');
 app.set('views', `${__dirname}/views`);
+
 app.set('view engine', 'ejs');
 
 console.log(__dirname);
@@ -29,13 +30,15 @@ app.use(morgan('combined'));
 
 // require routes
 const routes = require('./routes');
-const routesApi = require('./api');
+const routesApi = require('./routesApi');
 
 // routes
 app.use(routes);
 app.use('/api', routesApi);
 
-
+app.get('*', (req, res) => {
+    res.end(`Error, no se encontro esta ruta!!!`);
+});
 
 // server
 app.listen(port, () => {
