@@ -1,5 +1,5 @@
 # App-Web-ApiRest
-Creación de una aplicación web con NodeJs y ExpressJs. Instalar previamente NodeJs
+Creación de una aplicación web con NodeJs y ExpressJs.
 
 ## Project setup
 ```
