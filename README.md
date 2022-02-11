@@ -16,6 +16,11 @@ npm i express
 npm i morgan
 ```
 
+## Ejs
+```
+npm i ejs
+```
+
 ## Run Server
 ```
 npm start
