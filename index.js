@@ -4,8 +4,11 @@ const app = express();
 const port = 3000;
 
 // settings
-
 app.set('appName', 'First Server');
+app.set('views', `${__dirname}/views`);
+app.set('view engine', 'ejs');
+
+console.log(__dirname);
 
 // middlewares
 app.use(function(req, res, next) {
@@ -24,21 +27,17 @@ app.use(morgan('short'));
 app.use(morgan('tiny'));
 app.use(morgan('combined'));
 
+// require routes
+const routes = require('./routes');
+const routesApi = require('./api');
 
 // routes
-app.get('/', (req, res) => {
-    res.end(`Server Creado, escuchando en el puerto ${port}`);
-    // console.log(res.status());
-});
+app.use(routes);
+app.use('/api', routesApi);
 
-app.get('/login', (req, res) => {
-    res.end(`Login se muestra`);
-});
 
-app.get('*', (req, res) => {
-    res.end(`Error, no se encontro esta ruta!!!`);
-});
 
+// server
 app.listen(port, () => {
     console.log(`Servidor funcionando en el puerto ${port}!`);
     console.log(`Nombre de la app: ${app.get('appName')}`);
